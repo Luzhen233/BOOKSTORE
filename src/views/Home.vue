@@ -1,18 +1,34 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="home" v-cloak>
+    <HomeCategory/>
+    <HomeScrollPic/>
+    <HomeBooksHot/>
+    <BooksNew/>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import HomeCategory from '@/components/HomeCategory.vue'
+import HomeScrollPic from '@/components/HomeScrollPic.vue'
+import HomeBooksHot from '@/components/HomeBooksHot.vue'
+import BooksNew from '@/components/BooksNew.vue'
 export default {
-  name: 'Home',
+  name: 'home',
   components: {
-    HelloWorld
+    HomeCategory,
+    HomeScrollPic,
+    HomeBooksHot,
+    BooksNew
   }
 }
 </script>
+<style scoped>
+.home {
+  float: left;
+  text-align: center;
+  width: 100%;
+}
+[v-cloak]{
+  display: none;
+}
+</style>

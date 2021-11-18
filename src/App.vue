@@ -1,10 +1,29 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div id="app">
+    <Header/>
+    <Menus/>
+    <router-view/>
   </div>
-  <router-view/>
 </template>
+
+<script>
+import Header from '@/components/Header.vue'
+import Menus from '@/components/Menus.vue'
+import {factPrice, currency, formatTime} from './utils/util.js'
+export default {
+  components: {
+    Header,
+    Menus,
+  },
+  provide(){
+    return {
+      factPrice,
+      currency,
+      formatTime
+    }
+  }
+}
+</script>
 
 <style>
 #app {
@@ -13,18 +32,8 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  width: 1200px;
 }
 
-#nav {
-  padding: 30px;
-}
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>
